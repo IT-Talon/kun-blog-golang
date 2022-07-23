@@ -7,6 +7,6 @@ import (
 
 func main() {
 	r := server.New()
-	r.Mount(ctls.NewVersionCtl())
-	r.Run(":8080")
+	r.Mount("v1", ctls.NewVersionCtl())
+	r.Start()
 }
