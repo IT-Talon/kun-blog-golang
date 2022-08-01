@@ -3,6 +3,7 @@ package ctls
 import (
 	"github.com/gin-gonic/gin"
 	"kun-blog-golang/core/server"
+	v1 "kun-blog-golang/pkg/apis/v1"
 	"kun-blog-golang/pkg/kctl/cmd"
 	"net/http"
 )
@@ -15,8 +16,8 @@ func NewVersionCtl() *VersionCtl {
 }
 
 func (this *VersionCtl) Version(c *gin.Context) {
-	version := cmd.NewVersionInfo()
-	c.JSONP(http.StatusOK, gin.H{"Version": version.Version, "GoVersion": version.GoVersion})
+	rst := v1.NewResolve(cmd.NewVersionInfo())
+	c.JSON(http.StatusOK, rst)
 }
 
 func (this *VersionCtl) Build(core *server.KCore) {

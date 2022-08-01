@@ -12,7 +12,7 @@ type KCore struct {
 
 func New() *KCore {
 	return &KCore{
-		Engine: gin.New(),
+		Engine: gin.Default(),
 	}
 }
 
