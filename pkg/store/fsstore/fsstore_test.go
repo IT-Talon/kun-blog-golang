@@ -83,7 +83,7 @@ func TestFSStore_List(t *testing.T) {
 			F := FSStore{
 				root: tt.fields.root,
 			}
-			if got := F.List(); !reflect.DeepEqual(got, tt.want) {
+			if got, _ := F.List(); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("List() = %v, want %v", got, tt.want)
 			}
 		})
@@ -101,7 +101,7 @@ func TestFSStore_Save(t *testing.T) {
 			Describe:    "文章描述",
 		},
 		Md:       "# 标题",
-		FilePath: "./hello.md",
+		FileName: "./hello.md",
 	})
 	if err != nil {
 		t.Error(err)

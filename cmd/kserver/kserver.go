@@ -7,6 +7,8 @@ import (
 
 func main() {
 	r := server.New()
-	r.Mount("v1", ctls.NewVersionCtl())
+	r.LoadHTMLGlob("./public/tpl/*")
+	r.Mount("", ctls.NewPageCtl())
+	r.Mount("v1", ctls.NewVersionCtl(), ctls.NewPostCtl(), ctls.NewPageCtl())
 	r.Start()
 }

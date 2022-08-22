@@ -14,5 +14,5 @@ type Post struct {
 	*PostConfig
 	Html     string
 	Md       string
-	FilePath string `yaml:"-"`
+	FileName string `yaml:"-"`
 }
